@@ -16,6 +16,13 @@ There are few support files which are not part of the code, but which are includ
    * [cleanup.sh](cleanup.sh) - Bash script to remove old object files.
    * [compile.sh](compile.sh) - Build the C code; the example is trivial enough to not need a makefile.
 
+## Teaching Points
+
+   * Shared, common core logic
+   * Conventional, slow, iterative looping over an entire array of data
+   * Being able to break data down into chunks which are relatively independent of each other, and being processed in parallel
+   * Simple communication between processes to return independent result set to a master process for final calculation
+
 ## Example Performance figures
 
 ### Single Sequential Implementation
