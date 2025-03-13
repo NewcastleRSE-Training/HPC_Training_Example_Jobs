@@ -171,6 +171,7 @@ cython_debug/
 *.o
 c/single
 c/multi
+bash/data*
 
 # Don't track sqlite databases
 *.sqlite

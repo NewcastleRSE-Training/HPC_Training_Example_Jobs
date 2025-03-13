@@ -2,6 +2,26 @@
 
 This directory contains several flavours of a prime number generator written in C.
 
+The conventional example in this directory works as follows:
+
+   * You give it a number range, e.g. 2 to 10000
+   * The function iterates over each integer in that range and determines if it is a prime number, if it is, then it increments a counter.
+   * Once the entire range has been iterated, the counter (of how many primes are found) is returned.
+
+For the parallel example we still define the search range, e.g 2 - 10000. The Slurm job defines the number of cores (and therefore the number of MPI processes) which are allocated. Then the logic is as follows:
+
+   * Each MPI process gets 1/CPU_COUNT of the search range for itself. In the case of 4 CPU cores being allocated, then each MPI process would need to search:
+
+   * (10000 - 2) / 4 = 2499 sequential numbers*
+
+   * Each MPI process finds primes within its own range independently and simultaneously since it is running on an dedicated CPU.
+
+   * Once all MPI processes have finished searching, they send their tally of found primes to the controll process, where it tallies them up. The tally should always match the same number found by the conventional sequential search.
+
+Since each MPI process is only searching a fraction of the overall search space, the runtime of the MPI example is substantially reduced versus the sequential implementation.
+
+*(***) Note: One of the MPI processes is always rounded up to the last search number, so we don't miss any by the integer rounding errors of splitting the search range.*
+
 Files:
 
    * [primes.c](primes.c) - Implementation of the prime number generator, takes a start number and an end number and searches for all primes found between. Returns the number of primes found.
