@@ -169,6 +169,8 @@ cython_debug/
 
 # Object files
 *.o
+c/single
+c/multi
 
 # Don't track sqlite databases
 *.sqlite

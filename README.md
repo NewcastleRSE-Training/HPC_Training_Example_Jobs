@@ -10,7 +10,7 @@ This example shows:
 
    * A common algorithm shared between sequential and parallel code
    * Serial processing of an array of data
-   * Chunking a data set into batches to be processed in parallel by MPI processes
+   * Chunking a data set into batches to be processed in parallel by MPI processes (SLURM MPI JOB)
 
 Link:
 
