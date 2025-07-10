@@ -67,7 +67,7 @@ $ time mpirun -n $CPUS multi 2 10000000
 
 Hardware #1
 
-   * Intel Xeon E5 E5-2699 v4: 1x CPU = 98.3 wallclock seconds
+   * Intel Xeon E5 E5-2699 v4 (22 cores): 1x CPU = 98.3 wallclock seconds
    * 2x CPU = 67.6s
    * 4x CPU = 37.8s
    * 8x CPU = 21.2s
@@ -76,8 +76,16 @@ Hardware #1
 
 Hardware #2
 
-   * Intel i7 13700K: 1x CPU = 24.3 wallclock seconds
+   * Intel i7 13700K (16P + 8E cores): 1x CPU = 24.3 wallclock seconds
    * 2x CPU = 15.8s
    * 4x CPU = 8.8s
    * 8x CPU = 4.7s
    * 16x CPU = 3.4s
+
+Hardware #3
+
+	* AMD Epyc 9745 (128 cores): 1x CPU = 34.6 wallclock seconds
+	* 2x CPU = 22.3s
+	* 4x CPU = 12.2s
+	* 8x CPU = 6.4s
+	* 16x CPU = 3.35s

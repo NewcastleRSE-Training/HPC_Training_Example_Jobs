@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# On Rocket, load the intel compiler module which include MPI
+# Comment out all the 'module' lines if building on a local Linux system
+# and not a Slurm/HPC/module based system.
+
+# Build the single process version using the GCC compiler
 module purge
-module load intel
+module load GCC
 
 # Compile the common primeCount function
 # ======================================
@@ -17,6 +20,11 @@ gcc -o single single.o primes.o && ls -l single
 
 # Compile the mpi process version and link in the primeCount library
 # ==================================================================
+module purge
+# Next line is for Comet
+module load OpenMPI
+# Next line is for Rocket
+#module load mpi
 echo ""
 echo "Compiling MPI multi-process version..."
 mpicc -c multi.c -o multi.o

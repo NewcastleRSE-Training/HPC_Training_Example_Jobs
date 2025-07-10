@@ -1,26 +1,22 @@
 #!/bin/bash
 
+#SBATCH --partition=short_paid
 #SBATCH --job-name=primes_c
-#SBATCH --tasks=1
+#SBATCH --tasks=16
 #SBATCH --nodes=1
-#SBATCH -c 8
 
 PRIMES_START=2
 PRIMES_END=10000000
 
-module load intel
+# Needed on Comet
+module load OpenMPI
 
-# Find all of the prime numbers in the sequence defined above.
-# This is a parallel search, with one MPI instance per CPU allocated
-# to the job.
-# Each MPI instance is allocated 1/c of the entire search range, where
-# c == number of allocated CPUs.
-# The range is then searched in parallel and each MPI instance returning the
-# found primes to the controlling instance.
-# The number of found primes should be identical to the sequential search.
+# Needed on Rocket
+#module load intel
 
-echo "Starting Multi-process primes calculation ($PRIMES_START - $PRIMES_END) x${SLURM_CPUS_PER_TASK}"
+echo "Starting Multi-process primes calculation ($PRIMES_START - $PRIMES_END) x${SLURM_NTASKS}"
 echo "====================="
-time mpirun -np ${SLURM_CPUS_PER_TASK} ./multi $PRIMES_START $PRIMES_END
+
+time mpirun ./multi $PRIMES_START $PRIMES_END
 echo "====================="
 echo "Primes calculation complete"
