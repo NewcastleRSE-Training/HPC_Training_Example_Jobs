@@ -14,6 +14,10 @@ PRIMES_END=10000000
 
 echo "Starting single process primes calculation ($PRIMES_START - $PRIMES_END)"
 echo "====================="
-time ./single $PRIMES_START $PRIMES_END
+# GCC compiled version
+time ./single_gcc $PRIMES_START $PRIMES_END
+
+# AMD Compiled version
+#time ./single_aocc $PRIMES_START $PRIMES_END
 echo "====================="
 echo "Primes calculation complete"

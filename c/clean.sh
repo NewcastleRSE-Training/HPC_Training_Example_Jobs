@@ -1,3 +1,3 @@
 #!/bin/bash
 
-rm -v *.o single multi
+rm -v *.o single_gcc single_aocc multi

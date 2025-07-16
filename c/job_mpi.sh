@@ -1,9 +1,10 @@
 #!/bin/bash
 
-#SBATCH --partition=short_paid
+#SBATCH --partition=low-latency_paid
 #SBATCH --job-name=primes_c
-#SBATCH --tasks=16
+#SBATCH --ntasks-per-node=16
 #SBATCH --nodes=1
+
 
 PRIMES_START=2
 PRIMES_END=10000000
