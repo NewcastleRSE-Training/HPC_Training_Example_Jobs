@@ -51,6 +51,8 @@ There are few support files which are not part of the code, but which are includ
 $ time ./single 2 10000000
 ```
 
+See `job_single.sh` for a sample Slurm sbatch script.
+
 Hardware #1
 
    * Intel Xeon E5 E5-2699 v4: 97.2 seconds
@@ -64,6 +66,8 @@ Hardware #2
 ```
 $ time mpirun -n $CPUS multi 2 10000000
 ```
+
+If run under Slurm, see `job_mpi.sh` for a sample sbatch script.
 
 Hardware #1
 
@@ -84,8 +88,8 @@ Hardware #2
 
 Hardware #3
 
-	* AMD Epyc 9745 (128 cores): 1x CPU = 34.6 wallclock seconds
-	* 2x CPU = 22.3s
-	* 4x CPU = 12.2s
-	* 8x CPU = 6.4s
-	* 16x CPU = 3.35s
+   * AMD Epyc 9745 (128 cores): 1x CPU = 34.6 wallclock seconds
+   * 2x CPU = 22.3s
+   * 4x CPU = 12.2s
+   * 8x CPU = 6.4s
+   * 16x CPU = 3.35s

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --partition=short
+#SBATCH --partition=short_paid
 #SBATCH --job-name=primes_single
 #SBATCH --tasks=1
 #SBATCH --nodes=1
