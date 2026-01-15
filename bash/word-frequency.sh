@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # A bash script to read in one data file and perform word frequency analysis.
 # As far as possible, uses commands which are taught in Carpentries Unix Shell workshop
 
@@ -10,7 +12,7 @@ echo "=============================================="
 # get the contents of the text file to analyse
         time cat $DATA_FILE | \
 # for all fields, replace spaces with newlines, so each word is on its own line
-        cut -d ' ' -f 1-  --output-delimiter=$'\n'  | \  
+        cut -d ' ' -f 1-  --output-delimiter=$'\n'  | \
 # delete all non-letter characters, except newlines
         tr -c -d "[A-Za-z\n]"    | \
 # replace uppercase chars with lowercase
