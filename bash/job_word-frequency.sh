@@ -7,5 +7,5 @@
 #SBATCH --cpus-per-task=1
 
 echo "Starting word frequency script"
-bash word-freq.sh
+bash word-freq.sh [input file here]
 echo "Finished word frequency script"
