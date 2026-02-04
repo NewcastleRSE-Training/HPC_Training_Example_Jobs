@@ -1,12 +1,13 @@
 #!/bin/bash
 
+##SBATCH --partition=short_free
 #SBATCH --job-name=primes
 #SBATCH --ntasks-per-node=4
 #SBATCH --nodes=1
 
-export PMIX_MCA=native
+PMIX_MCA=native
 PRIMES_START=2
-PRIMES_END=10000000
+PRIMES_END=100000000
 
 # Needed on Comet
 module load OpenMPI
