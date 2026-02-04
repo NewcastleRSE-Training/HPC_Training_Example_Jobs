@@ -1,4 +1,4 @@
-#!/binsh
+#!/bin/sh
 #
 CFLAGS=""
 echo $CFLAGS
